@@ -23,7 +23,7 @@ feature_list = [sepalLengthCM,sepalWidthCM,petalLengthCM,petalWidthCM,]
 single_sample = np.array(feature_list).reshape(1, -1)
 
 if st.button("Click to Predict"):    
-    loaded_model = pickle.load(open('/app/uas-dwdm-streamlit/', "rb"))
+    loaded_model = pickle.load(open('/app/uas-dwdm-streamlit/model.pkl', "rb"))
     prediction = loaded_model.predict(single_sample)
     if (prediction[0]=="Iris-virginica"):
         st.image("virginica.png")
