@@ -4,6 +4,7 @@ import numpy as np
 import pickle  # to load a saved model
 
 st.title('IRIS CLASSIFICATION')
+st.image("iris.png")
 st.markdown('Dataset :')
 data = pd.read_csv('iris.csv')
 st.write(data.head())
@@ -24,4 +25,9 @@ single_sample = np.array(feature_list).reshape(1, -1)
 if st.button("Click to Predict"):    
     loaded_model = pickle.load(open('model.pkl', "rb"))
     prediction = loaded_model.predict(single_sample)
-    st.markdown(prediction[0])
+    if (prediction[0]=="Iris-virginica"):
+        st.image("virginica.png")
+    elif (prediction[0]=="Iris-versicolor"):
+        st.image("versicolor.png")
+    else :
+        st.image("setosa.png")
