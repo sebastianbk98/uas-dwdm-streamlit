@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import sklearn
 import pickle  # to load a saved model
 
 st.title('IRIS CLASSIFICATION')
@@ -23,7 +24,7 @@ feature_list = [sepalLengthCM,sepalWidthCM,petalLengthCM,petalWidthCM,]
 single_sample = np.array(feature_list).reshape(1, -1)
 
 if st.button("Click to Predict"):    
-    loaded_model = pickle.load(open('/app/uas-dwdm-streamlit/model.pkl', "rb"))
+    loaded_model = pickle.load(open('model.pkl', "rb"))
     prediction = loaded_model.predict(single_sample)
     if (prediction[0]=="Iris-virginica"):
         st.image("virginica.png")
