@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import pickle
 
-st.title('IRIS CLASSIFICATION by Sebastian Bagus Kurniawan 2019230142')
+st.title('IRIS CLASSIFICATION')
+st.subheader("by Sebastian Bagus Kurniawan 2019230142")
 st.image("iris.png")
 st.markdown('Dataset :')
 data = pd.read_csv('iris.csv')
